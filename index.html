@@ -2,234 +2,289 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tribal App - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff9f5;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background: #fffaf6;
+      color: #2e2e2e;
     }
 
     header {
-      background-color: #3f2b2b;
+      background: linear-gradient(to right, #511845, #900C3F);
       color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 50px 20px;
     }
 
     header h1 {
+      font-size: 3em;
       margin: 0;
-      font-size: 2em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
     }
 
     nav {
+      background-color: #2e1f27;
       display: flex;
       justify-content: center;
-      background-color: #563c3c;
-      padding: 10px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav a {
-      color: white;
+      color: #fbd5ab;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      padding: 10px 14px;
+      border-radius: 6px;
+      transition: background 0.3s;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background-color: #fbd5ab;
+      color: #2e2e2e;
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1601841162733-7408882401cc?auto=format&fit=crop&w=1650&q=80') no-repeat center center/cover;
-      color: white;
+      background: #ffe0cc;
+      color: #2e2e2e;
+      padding: 120px 20px;
       text-align: center;
-      padding: 80px 20px;
+      width: 100%;
     }
 
     .hero h2 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 10px;
+      color: #700c41;
     }
 
     .hero p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      font-size: 1.4em;
+      margin-bottom: 25px;
     }
 
     .hero a {
-      background-color: #f7c59f;
-      color: #3f2b2b;
-      padding: 12px 24px;
+      padding: 12px 26px;
+      background-color: #900C3F;
+      color: #fff;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 6px;
+      transition: background 0.3s;
     }
 
-    .section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+    .hero a:hover {
+      background-color: #700c41;
     }
 
-    .section h3 {
-      font-size: 1.8em;
+    section {
+      padding: 80px 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    section:nth-child(even) {
+      background-color: #f7f0eb;
+    }
+
+    section:nth-child(odd):not(.hero):not(footer) {
+      background-color: #fffaf6;
+    }
+
+    section h2, section h3, section h4 {
+      font-size: 2.4em;
+      color: #700c41;
       margin-bottom: 20px;
-      color: #3f2b2b;
+      text-align: center;
     }
 
-    .features, .testimonials, .help-options {
+    section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .offerings {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
-    }
-
-    .feature, .testimonial, .help-box {
-      flex: 1 1 300px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .feature img, .testimonial img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .feature-content, .testimonial-content, .help-content {
-      padding: 15px;
-    }
-
-    .mission {
-      background-color: #f3e1ce;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    .mission h3 {
-      margin-top: 0;
-    }
-
-    footer {
-      background-color: #3f2b2b;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      justify-content: center;
+      gap: 40px;
       margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.5em;
-      }
+    .card {
+      background: #fff8f0;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
 
-      .features, .testimonials, .help-options {
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #8b2232;
+      font-size: 1.5em;
+    }
+
+    .testimonials, .contact {
+      background-color: #fff0e0;
+    }
+
+    .testimonials blockquote {
+      font-style: italic;
+      text-align: center;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact input, .contact textarea {
+      width: 80%;
+      max-width: 600px;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .contact button {
+      padding: 12px 20px;
+      background: #900C3F;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #2e1f27;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    @media (max-width: 768px) {
+      .offerings {
         flex-direction: column;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Welcome to Tribal</h1>
-    <p>Preserving Indigenous Culture Digitally</p>
+    <h1>Tribal App</h1>
+    <p>Preserving Language, Culture & Traditions</p>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="#hero">Home</a>
     <a href="terms-and-conditions.html">Terms & Conditions</a>
     <a href="#about">About</a>
-    <a href="#help">Get Involved</a>
+    <a href="#vision">Vision & Mission</a>
+    <a href="#preservation">Preservation</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="hero" style="background-color: #2e2e2e; padding: 80px 20px; text-align: center;">
-    <h2 style="color: #f7c59f;">Embrace & Celebrate Tribal Heritage</h2>
-    <p style="color: #ffffff;">Explore songs, stories, rituals, and languages passed through generations.</p>
-    <a href="terms-and-conditions.html" style="background-color: #f7c59f; color: #2e2e2e; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px;">Read Terms & Conditions</a>
-  </section>
-  
-  <section class="mission">
-    <h3>Our Mission</h3>
-    <p>
-      To safeguard the ancestral wisdom, traditions, and voices of tribal communities by creating a respectful digital space that uplifts and honors them.
-    </p>
+  <section class="hero" id="hero">
+    <h2>Embrace & Celebrate Tribal Heritage</h2>
+    <p>Explore songs, stories, rituals, and languages passed through generations.</p>
+    <a href="terms-and-conditions.html">Read Terms & Conditions</a>
   </section>
 
-  <section class="section" id="about">
-    <h3>What We Offer</h3>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-content">
-          <h4>Oral Histories</h4>
-          <p>Preserving ancestral wisdom through authentic storytelling and voices from the community.</p>
-        </div>
+  <section id="about">
+    <h2>About Tribal App</h2>
+    <p>Tribal App is a digital platform to preserve and celebrate the language, culture, and traditions of tribal communities. It connects new generations with their heritage in an engaging and modern way.</p>
+  </section>
+
+  <section>
+    <h2>What We Offer</h2>
+    <div class="offerings">
+      <div class="card">
+        <h3>Language Learning</h3>
+        <p>Learn native tribal languages through interactive tools, pronunciation practice, and quizzes to grow your cultural knowledge.</p>
       </div>
-      <div class="feature">
-        <div class="feature-content">
-          <h4>Tribal Languages</h4>
-          <p>Explore and learn native languages that carry centuries of wisdom and identity.</p>
-        </div>
+      <div class="card">
+        <h3>Culture & Traditions</h3>
+        <p>Discover songs, folk stories, rituals, and customs, carefully curated by elders and researchers.</p>
       </div>
-      <div class="feature">
-        <div class="feature-content">
-          <h4>Rituals & Traditions</h4>
-          <p>Celebrate the rich cultural and spiritual practices of tribal groups across regions.</p>
-        </div>
+      <div class="card">
+        <h3>Festival Updates</h3>
+        <p>Get information about tribal festivals, celebrations, and gatherings happening near you.</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <h3>Why Tribal Matters</h3>
-    <p>
-      In an age of globalization, indigenous knowledge and practices are at risk of disappearing. Tribal ensures this treasure of humanity is protected and passed down to future generations—digitally, respectfully, and inclusively.
-    </p>
+  <section id="vision">
+    <h2>Our Vision</h2>
+    <p>To create a future where tribal communities are empowered, culturally enriched, and connected—preserving languages and traditions for generations.</p>
   </section>
 
-  <section class="section">
-    <h3>Testimonials</h3>
-    <div class="testimonials">
-      <div class="testimonial">
-        <div class="testimonial-content">
-          <p><strong>Santosh, Jharkhand</strong></p>
-          <p>"Thanks to Tribal, my children are now learning our native songs again. It connects us with our ancestors."</p>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial-content">
-          <p><strong>Meena, Odisha</strong></p>
-          <p>"The app reminded me of festivals I celebrated in childhood. I now share it with my students."</p>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>Our Mission</h2>
+    <p>We aim to preserve and promote tribal heritage digitally, supporting language, culture, and the upliftment of tribal communities.</p>
   </section>
 
-  <section class="section" id="help">
-    <h3>How You Can Help</h3>
-    <div class="help-options">
-      <div class="help-box help-content">
-        <h4>Share Knowledge</h4>
+  <section id="preservation">
+    <h2>Content Collection & Cultural Preservation</h2>
+    <p>Based on oral traditions, all data is respectfully collected and stored to protect and educate about tribal heritage and knowledge.</p>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>Testimonials</h2>
+    <blockquote>"This app helped me reconnect with my roots and taught me the beauty of our stories." – R. Singh</blockquote>
+    <blockquote>"An incredible initiative to preserve our culture. My kids love the language learning section!" – M. Kaur</blockquote>
+  </section>
+
+  <section id="help">
+    <h2>How You Can Help</h2>
+    <div class="offerings">
+      <div class="card">
+        <h3>Share Knowledge</h3>
         <p>If you're a tribal elder or youth with stories, reach out to help document your heritage.</p>
       </div>
-      <div class="help-box help-content">
-        <h4>Volunteer</h4>
+      <div class="card">
+        <h3>Volunteer</h3>
         <p>Join our mission by helping with translations, outreach, or research. All skills welcome.</p>
       </div>
-      <div class="help-box help-content">
-        <h4>Donate</h4>
+      <div class="card">
+        <h3>Donate</h3>
         <p>Support our work to build digital infrastructure and archive culture with dignity.</p>
       </div>
     </div>
   </section>
 
+  
   <section class="section" id="contact">
     <h3>Contact Us</h3>
     <p>For suggestions, contributions, or support inquiries, email us at:<br><strong>trblppspprt@gmail.com</strong></p>
@@ -238,6 +293,5 @@
   <footer>
     &copy; 2025 Tribal App | Built with respect for all indigenous communities
   </footer>
-
 </body>
 </html>
